@@ -12,17 +12,7 @@ GemfileHelper.load_dotenv do |dotenv_dir|
   end
 end
 
-# Introduces a scope for gem loading based on a condition
-def if_true(condition)
-  if condition
-    yield
-  else
-    # When not including the gems, we still want our Gemfile.lock
-    # to include them, so we scope them to an unsupported platform.
-    platform :ruby_18, &proc
-  end
-end
-
+gem 'thin'
 # Optional libraries.  To conserve RAM, comment out any that you don't need,
 # then run `bundle` and commit the updated Gemfile and Gemfile.lock.
 gem 'twilio-ruby', '~> 3.11.5'    # TwilioAgent
@@ -136,11 +126,6 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-bundler', '~> 1.1.4'
 
-  if_true(ENV['SPRING']) do
-    gem 'spring-commands-rspec', '~> 1.0.4'
-    gem 'spring', '~> 1.6.3'
-  end
-
   group :test do
     gem 'coveralls', '~> 0.7.4', require: false
     gem 'capybara-select2', require: false
@@ -171,6 +156,17 @@ gem 'tzinfo', '>= 1.2.0'	# required by rails; 1.2.0 has support for *BSD and Sol
 # Windows does not have zoneinfo files, so bundle the tzinfo-data gem.
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
+
+# Introduces a scope for gem loading based on a condition
+def if_true(condition)
+  if condition
+    yield
+  else
+    # When not including the gems, we still want our Gemfile.lock
+    # to include them, so we scope them to an unsupported platform.
+    platform :ruby_18, &proc
+  end
+end
 
 on_heroku = ENV['ON_HEROKU'] ||
             ENV['HEROKU_POSTGRESQL_ROSE_URL'] ||
