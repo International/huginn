@@ -64,5 +64,11 @@ class @AgentShowPage
           $("#memory .spinner").fadeOut ->
             $("#memory .clear").css(display: 'inline-block')
 
+class @AgentIndexPage
+  constructor: ->
+    setTimeout ->
+      window.location = window.location
+    , 20000
+
 $ ->
   Utils.registerPage(AgentShowPage, forPathsMatching: /^agents\/\d+/)
