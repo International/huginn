@@ -65,10 +65,11 @@ class @AgentShowPage
             $("#memory .clear").css(display: 'inline-block')
 
 class @AgentIndexPage
-  constructor: ->
+  init: ->
+    console.log "registering AgentIndexPage"
     setTimeout ->
       window.location = window.location
-    , 20000
+    , 120000
 
 $ ->
   Utils.registerPage(AgentShowPage, forPathsMatching: /^agents\/\d+/)
