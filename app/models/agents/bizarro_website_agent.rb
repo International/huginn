@@ -92,7 +92,7 @@ module Agents
 
       Set `unzip` to `gzip` to inflate the resource using gzip.
 
-      Set `consider_code_success` to an array of ints, ex: `[404]` to consider also 404 as successes, and to scrape it.
+      Set `consider_http_error_success` to an array of ints, ex: `[404]` to consider also 404 as successes, and to scrape it.
 
       # Liquid Templating
 
@@ -112,7 +112,7 @@ module Agents
 
     def consider_response_successful?(response)
       super || begin
-        consider_success = options["consider_code_success"]
+        consider_success = options["consider_http_error_success"]
         consider_success.present? && consider_success.include?(response.status)
       end
     end
