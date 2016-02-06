@@ -377,7 +377,10 @@ module Agents
 
     protected
     def consider_response_successful?(response)
-      response.success?
+      response.success? || begin
+        consider_success = options["consider_http_error_success"]
+        consider_success.present? && consider_success.include?(response.status)
+      end
     end
 
     private
