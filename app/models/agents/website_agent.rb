@@ -296,7 +296,6 @@ module Agents
       uri = Utils.normalize_uri(url)
       log "Fetching #{uri}"
       response = faraday.get(uri)
-
       raise "Failed: #{response.inspect}" unless consider_response_successful?(response)
 
       interpolation_context.stack {
@@ -374,6 +373,11 @@ module Agents
           end
         end
       end
+    end
+
+    protected
+    def consider_response_successful?(response)
+      response.success?
     end
 
     private
