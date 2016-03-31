@@ -19,6 +19,9 @@
           <%= nav_link icon_tag('glyphicon-random') + " View Diagram", diagram_path %>
         </ul>
       <% end %>
+      <% if Rails.env.development? %>
+        <%= nav_link "Letter Opener", letter_opener_agents_path %>
+      <% end %>
       <%= nav_link "Scenarios", scenarios_path %>
       <%= nav_link "Events", events_path %>
       <%= nav_link "Credentials", user_credentials_path %>

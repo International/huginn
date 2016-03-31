@@ -10,6 +10,9 @@ Huginn::Application.routes.draw do
 
     collection do
       put :toggle_visibility
+      if Rails.env.development?
+        get :letter_opener
+      end
       post :propagate
       get :type_details
       get :event_descriptions

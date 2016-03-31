@@ -3,6 +3,9 @@ class AgentsController < ApplicationController
   include ActionView::Helpers::TextHelper
   include SortableTable
 
+  def letter_opener
+  end
+
   def index
     set_table_sort sorts: %w[name created_at last_check_at last_event_at last_receive_at], default: { created_at: :desc }
 
