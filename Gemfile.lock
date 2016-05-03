@@ -123,6 +123,7 @@ GEM
       rails (>= 3.1)
     buftok (0.2.0)
     builder (3.2.2)
+    byebug (8.2.5)
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -387,8 +388,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-rails (0.3.4)
-      pry (>= 0.9.10)
+    pry-byebug (3.3.0)
+      byebug (~> 8.0)
+      pry (~> 0.10)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -591,6 +593,7 @@ DEPENDENCIES
   capistrano (~> 3.4.0)
   capistrano-bundler (~> 1.1.4)
   capistrano-rails (~> 1.1)
+  capybara
   capybara-select2
   coffee-rails (~> 4.1.1)
   coveralls
@@ -646,7 +649,7 @@ DEPENDENCIES
   pg (~> 0.18.3)
   poltergeist
   protected_attributes (~> 1.0.8)
-  pry-rails
+  pry-byebug
   quiet_assets
   rack (> 1.5.0)
   rack-livereload (~> 0.3.16)
@@ -684,5 +687,8 @@ DEPENDENCIES
   wunderground (~> 1.2.0)
   xmpp4r (~> 0.5.6)
 
+RUBY VERSION
+   ruby 2.3.0p0
+
 BUNDLED WITH
-   1.11.2
+   1.12.1

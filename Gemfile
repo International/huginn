@@ -135,6 +135,9 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-bundler', '~> 1.1.4'
 
+  gem 'poltergeist'
+  gem 'capybara'
+
   if_true(ENV['SPRING']) do
     gem 'spring-commands-rspec', '~> 1.0.4'
     gem 'spring', '~> 1.6.3'
@@ -144,8 +147,7 @@ group :development do
     gem 'coveralls', require: false
     gem 'capybara-select2', require: false
     gem 'delorean'
-    gem 'poltergeist'
-    gem 'pry-rails'
+    gem 'pry-byebug'
     gem 'rr'
     gem 'rspec', '~> 3.2'
     gem 'rspec-collection_matchers', '~> 1.1.0'
