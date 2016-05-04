@@ -7,6 +7,7 @@ module Agents
 
     form_configurable :url
     form_configurable :timeout
+    form_configurable :expected_update_period_in_days
     default_schedule "every_12h"
 
     description <<-MD
